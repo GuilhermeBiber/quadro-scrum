@@ -1,9 +1,17 @@
 package quadro.login.banco;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class LoginDbHelper extends SQLiteOpenHelper {
+
+	public LoginDbHelper(Context context, String name, CursorFactory factory,
+			int version) {
+		super(context, name, factory, version);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
