@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/label_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login" />
+
+    <EditText
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/label_senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/senha"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="37dp"
+        android:text="@string/senha" />
+
+    <EditText
+        android:id="@+id/senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/botao_entrada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="67dp"
+        android:layout_marginLeft="28dp"
+        android:layout_toRightOf="@+id/label_senha"
+        android:text="@string/entrar" />
+
+    <Button
+        android:id="@+id/botao_inserir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/botao_entrada"
+        android:layout_alignBottom="@+id/botao_entrada"
+        android:layout_marginLeft="44dp"
+        android:layout_toRightOf="@+id/botao_entrada"
+        android:text="@string/inserir" />
+
+</RelativeLayout>
