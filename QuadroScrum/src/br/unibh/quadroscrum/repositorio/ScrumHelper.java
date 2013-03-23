@@ -8,8 +8,8 @@ import android.util.Log;
 
 public class ScrumHelper extends SQLiteOpenHelper {
 
-	public static final String NOME_BANCO = "scrum";
-	public static int VERSAO_BANCO = 200;
+	public static final String NOME_BANCO = "scrum.db";
+	public static int VERSAO_BANCO = 1;
 
 	private static final String TAG = "scrum";
 

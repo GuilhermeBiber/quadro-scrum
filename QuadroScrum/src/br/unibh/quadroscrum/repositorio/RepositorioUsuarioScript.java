@@ -15,15 +15,15 @@ public class RepositorioUsuarioScript extends RepositorioUsuario{
 	public static final String createTabelaUsuario = 
 			"CREATE TABLE " + Usuario.NOME_TABELA
 			+ "( "
-			+ Usuario.NOME_ID + "integer primary key autoincrement," // sequencial
+			+ Usuario.NOME_ID + " integer primary key autoincrement," // sequencial
 			+ Usuario.NOME_LOGIN + " varchar(100) not null,"
-			+ Usuario.NOME_SENHA + " varchar(50) not null"
+			+ Usuario.NOME_SENHA + " varchar(50) not null,"
 			+ Usuario.NOME_EMAIL + " varchar(50) not null"
 			+ ");";
 	
 	public static final String insertUsuarioMaster = 
-			"INSERT INTO " + Usuario.NOME_TABELA  +
-			" VALUES (,'Master','maste@Master','teste'";
+			"INSERT INTO " + Usuario.NOME_TABELA  +"(" + Usuario.NOME_LOGIN + ", " + Usuario.NOME_EMAIL + ", " + Usuario.NOME_SENHA + ")" 
+			+ " VALUES ('Master','maste@Master','teste');";
 	
 	public static final String dropTabelaUsuario = "DROP TABLE IF EXISTS "+ Usuario.NOME_TABELA + ";";
 	

@@ -3,7 +3,7 @@ package br.unibh.quadroscrum.controle;
 import android.content.Context;
 import android.database.Cursor;
 import br.unibh.quadroscrum.modelo.Usuario;
-import br.unibh.quadroscrum.repositorio.RepositorioUsuario;
+import br.unibh.quadroscrum.repositorio.RepositorioUsuarioScript;
 
 
 public class ControleUsuario {
@@ -15,7 +15,7 @@ public class ControleUsuario {
 	 
 	public boolean existeUsuario(String login, String senha){
 		
-		RepositorioUsuario repositorio = new RepositorioUsuario(contexto);
+		RepositorioUsuarioScript repositorio = new RepositorioUsuarioScript(contexto);
 		
 		Cursor c = repositorio.selectUsuarioLoginSenha(login, senha);
 		
@@ -32,7 +32,7 @@ public class ControleUsuario {
 	
 public Long existeUsuario(Usuario usuario){
 		
-		RepositorioUsuario repositorio = new RepositorioUsuario(contexto);
+		RepositorioUsuarioScript repositorio = new RepositorioUsuarioScript(contexto);
 		
 		Cursor c = repositorio.selectUsuarioLoginSenha(usuario.getLogin(), usuario.getSenha());
 		
@@ -51,7 +51,7 @@ public Long existeUsuario(Usuario usuario){
 	
 	public Long salvar(Usuario usuario){
 		
-		RepositorioUsuario repositorio = new RepositorioUsuario(contexto);
+		RepositorioUsuarioScript repositorio = new RepositorioUsuarioScript(contexto);
 		
 		Long id = usuario.getId();
 		

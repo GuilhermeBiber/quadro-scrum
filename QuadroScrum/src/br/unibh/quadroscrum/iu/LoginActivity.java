@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 import br.unibh.quadroscrum.R;
 import br.unibh.quadroscrum.controle.ControleUsuario;
-import br.unibh.quadroscrum.repositorio.ScrumHelper;
 
 public class LoginActivity extends Activity{
 	
