@@ -12,12 +12,18 @@ public class RepositorioUsuarioScript extends RepositorioUsuario{
 	private SQLiteOpenHelper dbHelper;
 	private static final String TAG = "scrum";
 	
-	public static final String createTabelaUsuario = "CREATE TABLE " + Usuario.NOME_TABELA
+	public static final String createTabelaUsuario = 
+			"CREATE TABLE " + Usuario.NOME_TABELA
 			+ "( "
 			+ Usuario.NOME_ID + "integer primary key autoincrement," // sequencial
 			+ Usuario.NOME_LOGIN + " varchar(100) not null,"
-			+ Usuario.NOME_SENHA +  " varchar(50) not null"
+			+ Usuario.NOME_SENHA + " varchar(50) not null"
+			+ Usuario.NOME_EMAIL + " varchar(50) not null"
 			+ ");";
+	
+	public static final String insertUsuarioMaster = 
+			"INSERT INTO " + Usuario.NOME_TABELA  +
+			" VALUES (,'Master','maste@Master','teste'";
 	
 	public static final String dropTabelaUsuario = "DROP TABLE IF EXISTS "+ Usuario.NOME_TABELA + ";";
 	

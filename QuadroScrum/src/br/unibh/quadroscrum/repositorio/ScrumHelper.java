@@ -9,7 +9,7 @@ import android.util.Log;
 public class ScrumHelper extends SQLiteOpenHelper {
 
 	public static final String NOME_BANCO = "scrum";
-	public static int VERSAO_BANCO = 1;
+	public static int VERSAO_BANCO = 200;
 
 	private static final String TAG = "scrum";
 
@@ -17,13 +17,15 @@ public class ScrumHelper extends SQLiteOpenHelper {
 
 	public ScrumHelper(Context contexto) {
 		super(contexto, NOME_BANCO, null, VERSAO_BANCO);
+		Log.i(TAG, "Passou pelo helper");
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		try{
-			db.execSQL(RepositorioUsuarioScript.createTabelaUsuario);		
+			db.execSQL(RepositorioUsuarioScript.createTabelaUsuario);
+			db.execSQL(RepositorioUsuarioScript.insertUsuarioMaster);
 		}catch(SQLException e){
 			Log.e(TAG, "Problemas ao criar tabela\n" + e.toString());
 		}

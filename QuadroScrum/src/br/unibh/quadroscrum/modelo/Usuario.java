@@ -11,6 +11,12 @@ public class Usuario {
 	public static final String NOME_ID = "_id";
 	public static final String NOME_LOGIN = "login";
 	public static final String NOME_SENHA = "senha";
+	public static final String NOME_EMAIL = "email";
+	
+	public static final int INDICE_ID = 0;
+	public static final int INDICE_LOGIN = 1;
+	public static final int INDICE_SENHA = 2;
+	public static final int INDICE_EMAIL = 3;
 	
 	public Usuario(String login, String senha) {
 		this.id = null;
