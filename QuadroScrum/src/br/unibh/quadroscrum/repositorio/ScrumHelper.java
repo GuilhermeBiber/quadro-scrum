@@ -24,8 +24,8 @@ public class ScrumHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		try{
-			db.execSQL(RepositorioUsuarioScript.createTabelaUsuario);
-			db.execSQL(RepositorioUsuarioScript.insertUsuarioMaster);
+			db.execSQL(UsuarioRepositorioScript.CREATE_TABELA_USUARIO);
+			db.execSQL(UsuarioRepositorioScript.INSERT_USUARIO_MASTER);
 		}catch(SQLException e){
 			Log.e(TAG, "Problemas ao criar tabela\n" + e.toString());
 		}
@@ -36,7 +36,7 @@ public class ScrumHelper extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
-		db.execSQL(RepositorioUsuarioScript.dropTabelaUsuario);
+		db.execSQL(UsuarioRepositorioScript.DROP_TABELA_USUARIO);
 		Log.d(TAG, "Banco Destruido");
 		
 		onCreate(db);

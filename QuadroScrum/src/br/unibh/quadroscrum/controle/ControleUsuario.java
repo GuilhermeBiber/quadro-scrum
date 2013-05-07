@@ -3,7 +3,7 @@ package br.unibh.quadroscrum.controle;
 import android.content.Context;
 import android.database.Cursor;
 import br.unibh.quadroscrum.modelo.Usuario;
-import br.unibh.quadroscrum.repositorio.RepositorioUsuarioScript;
+import br.unibh.quadroscrum.repositorio.UsuarioRepositorioScript;
 
 
 public class ControleUsuario {
@@ -13,14 +13,14 @@ public class ControleUsuario {
 		 this.contexto = contexto;
 	 }
 	 
-	public boolean existeUsuario(String login, String senha){
+	public boolean existeUsuario(String email, String senha){
 		
-		RepositorioUsuarioScript repositorio = new RepositorioUsuarioScript(contexto);
+		UsuarioRepositorioScript repositorio = new UsuarioRepositorioScript(contexto);
 		
-		Cursor c = repositorio.selectUsuarioLoginSenha(login, senha);
+		Cursor c = repositorio.selectUsuarioLoginSenha(email, senha);
 		
 		if(c.moveToFirst()){
-			repositorio.fechar();			
+			repositorio.fechar();
 			return true;
 		}else{
 			repositorio.fechar();
@@ -30,16 +30,16 @@ public class ControleUsuario {
 
 	}
 	
-public Long existeUsuario(Usuario usuario){
+public String existeUsuario(Usuario usuario){
 		
-		RepositorioUsuarioScript repositorio = new RepositorioUsuarioScript(contexto);
+		UsuarioRepositorioScript repositorio = new UsuarioRepositorioScript(contexto);
 		
-		Cursor c = repositorio.selectUsuarioLoginSenha(usuario.getLogin(), usuario.getSenha());
+		Cursor c = repositorio.selectUsuarioLoginSenha(usuario.getEmail(), usuario.getSenha());
 		
 		if(c.moveToFirst()){
-			Long _id = c.getLong(Usuario.INDICE_ID);
+			String email= c.getString(Usuario.INDICE_EMAIL);
 			repositorio.fechar();
-			return _id;
+			return email;
 		}else{
 			repositorio.fechar();
 			return null;		
@@ -49,19 +49,12 @@ public Long existeUsuario(Usuario usuario){
 	}
 	
 	
-	public Long salvar(Usuario usuario){
+	public String inserir(Usuario usuario){
 		
-		RepositorioUsuarioScript repositorio = new RepositorioUsuarioScript(contexto);
+		UsuarioRepositorioScript repositorio = new UsuarioRepositorioScript(contexto);
 		
-		Long id = usuario.getId();
+		return repositorio.inserir(usuario);
 		
-		if(id != null){
-			repositorio.atualizar(usuario);
-		}else{
-			id = repositorio.inserir(usuario);
-		}
-		repositorio.fechar();
-		return id;
 	}
 
 

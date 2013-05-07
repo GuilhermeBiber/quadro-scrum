@@ -31,12 +31,12 @@ public class LoginActivity extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				EditText login = (EditText) findViewById(R.id.login);
+				EditText email = (EditText) findViewById(R.id.email);
 				EditText senha = (EditText) findViewById(R.id.senha);
 				
 				ControleUsuario controle = new ControleUsuario(v.getContext());
 				
-				if(( controle.existeUsuario(login.getText().toString(), senha.getText().toString()))){
+				if(( controle.existeUsuario(email.getText().toString(), senha.getText().toString()))){
 					
 					startActivity(new Intent(v.getContext(),CadastroUsuarioActicity.class));
 					

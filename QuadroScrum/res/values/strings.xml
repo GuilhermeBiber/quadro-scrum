@@ -1,10 +1,17 @@
 <resources>
 
     <string name="app_name">QuadroScrum</string>
-    <string name="login">Login</string>
     <string name="senha">Senha</string>
     <string name="entrar">Entrar</string>
-    <string name="criar_usuario">Inserir novo usuario</string>
+    <string name="salvar_usuario">Salvar usuario</string>
     <string name="email">Email</string>
-
+	<string-array name="tipo_usuario">
+	    <item>Stackholders</item>
+	    <item>Scrum Master</item>
+	    <item>Team</item>
+	</string-array>
+	
+	<string name="nome_produto">Nome Produto</string>
+	<string name="salvar_produto">Salvar produto</string>
+    
 </resources>

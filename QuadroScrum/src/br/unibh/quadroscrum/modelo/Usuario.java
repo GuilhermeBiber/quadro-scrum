@@ -4,50 +4,34 @@ public class Usuario {
 
 	public static final String NOME_TABELA = "scrum_usuario";
 	
-	private Long id;
-	private String login;
+	private Long _id;
+	private String email;
 	private String senha;
+	private int tipoUsuario; // 1: Steakholder, 2:ScrumMaster, 3:Team
 	
 	public static final String NOME_ID = "_id";
-	public static final String NOME_LOGIN = "login";
 	public static final String NOME_SENHA = "senha";
 	public static final String NOME_EMAIL = "email";
-	
+	public static final String NOME_TIPO_USUARIO = "tipo_usuario";
+
 	public static final int INDICE_ID = 0;
-	public static final int INDICE_LOGIN = 1;
+	public static final int INDICE_EMAIL = 1;
 	public static final int INDICE_SENHA = 2;
-	public static final int INDICE_EMAIL = 3;
+	public static final int INDICE_TIPO_USUARIO = 3;
 	
-	public Usuario(String login, String senha) {
-		this.id = null;
-		this.login = login;
+	public Usuario(String email, String senha, int tipoUsuario) {
+		this.email = email;
 		this.senha = senha;
+		this.tipoUsuario = tipoUsuario;
 	}
 	
 	
-
-	public Usuario(Long id, String login, String senha) {
-		this.id = id;
-		this.login = login;
-		this.senha = senha;
+	public String getEmail() {
+		return email;
 	}
 
-
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
+	public void setEmail(String login) {
+		this.email = login;
 	}
 
 	public String getSenha() {
@@ -56,6 +40,16 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+
+	public int getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+
+	public void setTipoUsuario(int tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 	
 	
