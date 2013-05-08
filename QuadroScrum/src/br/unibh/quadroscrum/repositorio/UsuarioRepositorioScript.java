@@ -1,9 +1,9 @@
 package br.unibh.quadroscrum.repositorio;
 
-import br.unibh.quadroscrum.modelo.Usuario;
 import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import br.unibh.quadroscrum.modelo.Usuario;
 
 
 public class UsuarioRepositorioScript extends UsuarioRepositorio{
@@ -25,7 +25,7 @@ public class UsuarioRepositorioScript extends UsuarioRepositorio{
 			"INSERT INTO " + Usuario.NOME_TABELA  +"("	+ Usuario.NOME_EMAIL + ", "
 														+ Usuario.NOME_SENHA + ", "
 														+ Usuario.NOME_TIPO_USUARIO + ")" 
-			+ " VALUES ('maste@master','1',2);";
+			+ " VALUES ('master@master','1',2);";
 	
 	public static final String DROP_TABELA_USUARIO = "DROP TABLE IF EXISTS "+ Usuario.NOME_TABELA + ";";
 	

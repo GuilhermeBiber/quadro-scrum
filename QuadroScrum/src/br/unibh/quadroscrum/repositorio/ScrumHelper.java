@@ -9,7 +9,7 @@ import android.util.Log;
 public class ScrumHelper extends SQLiteOpenHelper {
 
 	public static final String NOME_BANCO = "scrum.db";
-	public static int VERSAO_BANCO = 1;
+	public static int VERSAO_BANCO = 2;
 
 	private static final String TAG = "scrum";
 
@@ -26,6 +26,7 @@ public class ScrumHelper extends SQLiteOpenHelper {
 		try{
 			db.execSQL(UsuarioRepositorioScript.CREATE_TABELA_USUARIO);
 			db.execSQL(UsuarioRepositorioScript.INSERT_USUARIO_MASTER);
+			db.execSQL(ProdutoRepositorio.CREATE_TABELA_PRODUTO);
 		}catch(SQLException e){
 			Log.e(TAG, "Problemas ao criar tabela\n" + e.toString());
 		}
@@ -37,6 +38,7 @@ public class ScrumHelper extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
 		db.execSQL(UsuarioRepositorioScript.DROP_TABELA_USUARIO);
+		db.execSQL(ProdutoRepositorio.DROP_TABELA_PRODUTO);
 		Log.d(TAG, "Banco Destruido");
 		
 		onCreate(db);

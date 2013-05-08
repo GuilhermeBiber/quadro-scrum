@@ -14,7 +14,8 @@ public class UsuarioRepositorio {
 	private static final String TAG = "scrum";
 	
 	public UsuarioRepositorio(Context contexto){
-		this.db = contexto.openOrCreateDatabase(ScrumHelper.NOME_BANCO, Context.MODE_PRIVATE, null);
+		this.db = contexto.openOrCreateDatabase(ScrumHelper.NOME_BANCO,
+				Context.MODE_PRIVATE, null);
 		Log.d(TAG, "Passou pelo RepositorioUsuario");
 		
 	}
@@ -29,7 +30,7 @@ public class UsuarioRepositorio {
 	}
 	
 	
-	//************************************** INSERT *********************************************
+//******************************* INSERT **************************************
 	
 	public String inserir(Usuario usuario){
 		ContentValues valores = new ContentValues();
@@ -47,14 +48,14 @@ public class UsuarioRepositorio {
 		}
 	}
 	
-	public Long inserir(ContentValues valores){
+	private Long inserir(ContentValues valores){
 		
 		Long id = db.insert(Usuario.NOME_TABELA, "", valores);
 		return id;
 	}
 	
 	
-	//********************************** UPDATE ********************************************
+//********************************** UPDATE **********************************
 	public int atualizar(Usuario usuario){
 		ContentValues valores = new ContentValues();
 		valores.put(Usuario.NOME_SENHA, usuario.getSenha());
@@ -69,37 +70,36 @@ public class UsuarioRepositorio {
 		
 	}
 	
-	private int atualizar(ContentValues valores, String where, String[] whereArg){
+	private int atualizar(ContentValues valores, String where,
+			String[] whereArg){
 		
-		int cont = db.update(Usuario.NOME_TABELA, valores, where, whereArg);
-		fechar();
-		return cont;
+		return db.update(Usuario.NOME_TABELA, valores, where, whereArg);
 	}
 	
 	
-	//*********************************** DELETE ****************************************************
-	public int delete(String email){
+//*********************************** DELETE *********************************
+	public int delete(Usuario usuario){
 		String where = Usuario.NOME_EMAIL + " = ?";
 		
-		String[] whereArg = new String[] {email};
+		String[] whereArg = new String[] {usuario.getEmail()};
 		
-		int cont = delete(where, whereArg);		
+		return delete(where, whereArg);		
 		
-		return cont;
 	}
 	
 	private int delete(String where, String[] whereArg){
 		
-		int cont = db.delete(Usuario.NOME_TABELA, where, whereArg);
-		return cont;
+		return db.delete(Usuario.NOME_TABELA, where, whereArg);
+		
 	}
 	
-	//********************************** SELECT *********************************************************
+//********************************** SELECT **********************************
 	public Cursor selectUsuarioLoginSenha(String email, String senha){
 		
 		String select = "SELECT * "+
 				" FROM " + Usuario.NOME_TABELA+
-				" WHERE " + Usuario.NOME_EMAIL + " = ? and " + Usuario.NOME_SENHA + " = ?";
+				" WHERE " + Usuario.NOME_EMAIL + " = ? and "
+				+ Usuario.NOME_SENHA + " = ?";
 
 		String[] selectArgs = new String[]{email,senha};	
 		Cursor c = null;

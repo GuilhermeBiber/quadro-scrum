@@ -11,7 +11,30 @@ public class Backlog {
 	private Long _idSprint;
 	private Long _idUsuario;
 	private Date dataInsecao;
+	private Long _idProduto;
+	private Long _idStatus;
+	private int prioridade;
+	private int tempoEstimado;
+	private char travado;
 	
+	public int getPrioridade() {
+		return prioridade;
+	}
+	public void setPrioridade(int prioridade) {
+		this.prioridade = prioridade;
+	}
+	public int getTempoEstimado() {
+		return tempoEstimado;
+	}
+	public void setTempoEstimado(int tempoEstimado) {
+		this.tempoEstimado = tempoEstimado;
+	}
+	public char getTravado() {
+		return travado;
+	}
+	public void setTravado(char travado) {
+		this.travado = travado;
+	}
 	public static final String NOME_ID = "_id";
 	public static final String NOME_TITULO = "titulo";
 	public static final String NOME_DESCRICAO = "descricao";
@@ -67,6 +90,18 @@ public class Backlog {
 	}
 	public void setDataInsecao(Date dataInsecao) {
 		this.dataInsecao = dataInsecao;
+	}
+	public Long get_idProduto() {
+		return _idProduto;
+	}
+	public void set_idProduto(Long _idProduto) {
+		this._idProduto = _idProduto;
+	}
+	public Long get_idStatus() {
+		return _idStatus;
+	}
+	public void set_idStatus(Long _idStatus) {
+		this._idStatus = _idStatus;
 	}
 	
 	
