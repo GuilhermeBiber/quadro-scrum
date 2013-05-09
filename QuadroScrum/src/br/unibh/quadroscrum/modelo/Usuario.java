@@ -4,7 +4,7 @@ public class Usuario {
 
 	public static final String NOME_TABELA = "scrum_usuario";
 	
-	private Long _id;
+	private Long id;
 	private String email;
 	private String senha;
 	private int tipoUsuario; // 1: Steakholder, 2:ScrumMaster, 3:Team
@@ -50,6 +50,11 @@ public class Usuario {
 
 	public void setTipoUsuario(int tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
+	}
+
+
+	public Long getId() {
+		return id;
 	}
 	
 	

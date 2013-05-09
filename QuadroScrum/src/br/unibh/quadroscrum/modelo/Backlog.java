@@ -4,56 +4,49 @@ import java.util.Date;
 
 public class Backlog {
 	
-	private Long _id;
+	public static final String NOME_TABELA = "scrum_backlog";
+	
+	private Long id;
 	private String titulo;
 	private String descricao;
-	private int estado;
-	private Long _idSprint;
-	private Long _idUsuario;
+	private Sprint sprint;
+	private Usuario usuario;
 	private Date dataInsecao;
-	private Long _idProduto;
-	private Long _idStatus;
+	private Produto produto;
+	private Long status;
 	private int prioridade;
 	private int tempoEstimado;
-	private char travado;
+	private int travado;
 	
-	public int getPrioridade() {
-		return prioridade;
-	}
-	public void setPrioridade(int prioridade) {
-		this.prioridade = prioridade;
-	}
-	public int getTempoEstimado() {
-		return tempoEstimado;
-	}
-	public void setTempoEstimado(int tempoEstimado) {
-		this.tempoEstimado = tempoEstimado;
-	}
-	public char getTravado() {
-		return travado;
-	}
-	public void setTravado(char travado) {
-		this.travado = travado;
-	}
 	public static final String NOME_ID = "_id";
 	public static final String NOME_TITULO = "titulo";
 	public static final String NOME_DESCRICAO = "descricao";
-	public static final String NOME_ESTADO = "estado";
 	public static final String NOME_SPRINT = "_id_sprint";
 	public static final String NOME_USUARIO = "_id_usuario";
-	public static final String NOME_INSERCAO = "data_insercao";
+	public static final String NOME_DATA_INSERCAO = "data_insercao";
+	public static final String NOME_PRODUTO = "_id_produto";
+	public static final String NOME_STATUS = "_id_status";
+	public static final String NOME_PRIORIDADE = "prioridade";
+	public static final String NOME_TEMPO_ESTIMADO = "tempo_estimado";
+	public static final String NOME_TRAVADO = "travado";
 	
 	public static final int INDICE_ID = 0;
 	public static final int INDICE_TITULO = 1;
 	public static final int INDICE_DESCRICAO = 2;
-	public static final int INDICE_ESTADO = 3;
-	public static final int INDICE_SPRINT = 4;
-	public static final int INDICE_USUARIO = 5;
-	public static final int INDICE_INSERCAO = 6;
+	public static final int INDICE_SPRINT = 3;
+	public static final int INDICE_USUARIO = 4;
+	public static final int INDICE_DATA_INSERCAO = 5;
+	public static final int INDICE_PRODUTO = 6;
+	public static final int INDICE_STATUS = 7;
+	public static final int INDICE_PRIORIDADE = 8;
+	public static final int INDICE_TEMPO_ESTIMADO = 9;
+	public static final int INDICE_TRAVADO = 10;
 	
-	
-	public Long get_id() {
-		return _id;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getTitulo() {
 		return titulo;
@@ -67,23 +60,17 @@ public class Backlog {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public int getEstado() {
-		return estado;
+	public Sprint getSprint() {
+		return sprint;
 	}
-	public void setEstado(int estado) {
-		this.estado = estado;
+	public void setSprint(Sprint sprint) {
+		this.sprint = sprint;
 	}
-	public Long get_idSprint() {
-		return _idSprint;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void set_idSprint(Long _idSprint) {
-		this._idSprint = _idSprint;
-	}
-	public Long get_idUsuario() {
-		return _idUsuario;
-	}
-	public void set_idUsuario(Long _idUsuario) {
-		this._idUsuario = _idUsuario;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	public Date getDataInsecao() {
 		return dataInsecao;
@@ -91,20 +78,36 @@ public class Backlog {
 	public void setDataInsecao(Date dataInsecao) {
 		this.dataInsecao = dataInsecao;
 	}
-	public Long get_idProduto() {
-		return _idProduto;
+	public Produto getProduto() {
+		return produto;
 	}
-	public void set_idProduto(Long _idProduto) {
-		this._idProduto = _idProduto;
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
-	public Long get_idStatus() {
-		return _idStatus;
+	public Long getStatus() {
+		return status;
 	}
-	public void set_idStatus(Long _idStatus) {
-		this._idStatus = _idStatus;
+	public void setStatus(Long status) {
+		this.status = status;
 	}
-	
-	
+	public int getPrioridade() {
+		return prioridade;
+	}
+	public void setPrioridade(int prioridade) {
+		this.prioridade = prioridade;
+	}
+	public int getTempoEstimado() {
+		return tempoEstimado;
+	}
+	public void setTempoEstimado(int tempoEstimado) {
+		this.tempoEstimado = tempoEstimado;
+	}
+	public int getTravado() {
+		return travado;
+	}
+	public void setTravado(int travado) {
+		this.travado = travado;
+	}	
 	
 	
 }

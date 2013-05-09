@@ -6,10 +6,10 @@ public class Sprint {
 
 	public static final String NOME_TABELA = "scrum_sprint";
 	
-	private Long _id;
+	private Long id;
 	private String titulo;
 	private String descricao;
-	private Long produto;
+	private Produto produto;
 	private Date dataInsercao;
 	private Date dataInicio;
 	private Date dataFim;
@@ -42,10 +42,10 @@ public class Sprint {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Long getProduto() {
+	public Produto getProduto() {
 		return produto;
 	}
-	public void setProduto(Long produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
 	public Date getDataInsercao() {
@@ -66,10 +66,12 @@ public class Sprint {
 	public void setDataFim(Date dataFim) {
 		this.dataFim = dataFim;
 	}
-	public Long get_id() {
-		return _id;
+	public Long getId() {
+		return id;
 	}
-	
+	public void setId(Long id){
+		this.id = id;
+	}
 	
 
 }

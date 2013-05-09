@@ -44,7 +44,7 @@ public class SprintRepositorio {
 		
 		valores.put(Sprint.NOME_TITULO, sprint.getTitulo());
 		valores.put(Sprint.NOME_DESCRICAO, sprint.getDescricao());
-		valores.put(Sprint.NOME_PRODUTO, sprint.getProduto());
+		valores.put(Sprint.NOME_PRODUTO, sprint.getProduto().getId());
 		
 		return inserir(valores);
 	}
@@ -62,10 +62,10 @@ public class SprintRepositorio {
 		
 		valores.put(Sprint.NOME_TITULO, sprint.getTitulo());
 		valores.put(Sprint.NOME_DESCRICAO, sprint.getDescricao());
-		valores.put(Sprint.NOME_PRODUTO, sprint.getProduto());
+		valores.put(Sprint.NOME_PRODUTO, sprint.getProduto().getId());
 		
 		String where = Sprint.NOME_ID + " = ?";
-		String[] whereArg = new String[] {sprint.get_id().toString()};
+		String[] whereArg = new String[] {sprint.getId().toString()};
 		
 		return atualizar(valores, where, whereArg);
 	}
@@ -81,7 +81,7 @@ public class SprintRepositorio {
 	public int delete(Sprint sprint){
 		String where = Sprint.NOME_ID + " = ?";
 		
-		String[] whereArg = new String[] {sprint.get_id().toString()};
+		String[] whereArg = new String[] {sprint.getId().toString()};
 		
 		return delete(where, whereArg);
 	}
