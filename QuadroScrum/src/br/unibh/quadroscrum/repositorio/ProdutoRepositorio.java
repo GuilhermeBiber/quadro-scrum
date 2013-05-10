@@ -9,11 +9,11 @@ public class ProdutoRepositorio {
 
 //**************************** CREATE *****************************************	
 	public static final String CREATE_TABELA_PRODUTO = 
-			"CREATE TABLE" + Produto.NOME_TABELA 
+			"CREATE TABLE " + Produto.NOME_TABELA 
 			+"("
-			+Produto.NOME_ID + "integer primary key autoincrement"
-			+Produto.NOME_PRODUTO + "varchar(50) not null,"
-			+Produto.NOME_DATA_INSECAO + "date not null"
+			+Produto.NOME_ID + " integer primary key autoincrement, "
+			+Produto.NOME_PRODUTO + " varchar(50) not null, "
+			+Produto.NOME_DATA_INSECAO + " date "
 			+");"; 
 	
 //*************************** DROP ********************************************	

@@ -1,8 +1,12 @@
 package br.unibh.quadroscrum.modelo;
 
 import java.util.Date;
+import java.util.Hashtable;
 
-public class Sprint {
+import org.ksoap2.serialization.KvmSerializable;
+import org.ksoap2.serialization.PropertyInfo;
+
+public class Sprint implements KvmSerializable{
 
 	public static final String NOME_TABELA = "scrum_sprint";
 	
@@ -71,6 +75,94 @@ public class Sprint {
 	}
 	public void setId(Long id){
 		this.id = id;
+	}
+	@Override
+	public Object getProperty(int index) {
+		switch(index){
+			case 0:
+				return this.dataFim;
+			case 1:
+				return this.dataInicio;
+			case 2:
+				return this.dataInsercao;
+			case 3:
+				return this.descricao;
+			case 4:
+				return this.id;
+			case 5:
+				return this.produto;
+			case 6:
+				return this.titulo;
+		}
+		return null;
+	}
+	@Override
+	public int getPropertyCount() {
+		return 7;
+	}
+	@Override
+	public void getPropertyInfo(int index, Hashtable ht, PropertyInfo pi) {
+		switch(index){
+			case 0:
+				pi.type = Date.class;
+				pi.name = "dataInsercao";
+				break;
+			case 1:
+				pi.type = Date.class;
+				pi.name = "dataInicio";
+				break;
+			case 2:
+				pi.type = Date.class;
+				pi.name = "dataInsercao";
+				break;
+			case 3:
+				pi.type = String.class;
+				pi.name = "descricao";
+				break;
+			case 4:
+				pi.type = Long.class;
+				pi.name = "id";
+				break;
+			case 5:
+				pi.type = Produto.class;
+				pi.name =  "produto";
+				break;
+			case 6:
+				pi.type = String.class;
+				pi.name = "titulo";
+				break;
+			default:
+				break;
+		}
+	}
+	@Override
+	public void setProperty(int index, Object obj) {
+		switch(index){
+			case 0:
+				this.dataFim = (Date)obj;
+				break;
+			case 1:
+				this.dataInicio = (Date)obj;
+				break;
+			case 2:
+				this.dataInsercao = (Date)obj;
+				break;
+			case 3:
+				this.descricao = (String)obj;
+				break;
+			case 4:
+				this.id = (Long)obj;
+				break;
+			case 5:
+				this.produto = (Produto)obj;
+				break;
+			case 6:
+				this.titulo = (String)obj;
+				break;
+			default:
+				break;
+		}
+		
 	}
 	
 

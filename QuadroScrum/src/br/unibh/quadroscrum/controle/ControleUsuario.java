@@ -20,9 +20,11 @@ public class ControleUsuario {
 		Cursor c = repositorio.selectUsuarioLoginSenha(email, senha);
 		
 		if(c.moveToFirst()){
+			c.close();
 			repositorio.fechar();
 			return true;
 		}else{
+			c.close();
 			repositorio.fechar();
 			return false;		
 		}

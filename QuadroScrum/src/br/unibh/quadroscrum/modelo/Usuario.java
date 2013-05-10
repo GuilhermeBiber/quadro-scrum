@@ -1,13 +1,18 @@
 package br.unibh.quadroscrum.modelo;
 
-public class Usuario {
+import java.util.Hashtable;
+
+import org.ksoap2.serialization.KvmSerializable;
+import org.ksoap2.serialization.PropertyInfo;
+
+public class Usuario implements KvmSerializable {
 
 	public static final String NOME_TABELA = "scrum_usuario";
 	
 	private Long id;
 	private String email;
 	private String senha;
-	private int tipoUsuario; // 1: Steakholder, 2:ScrumMaster, 3:Team
+	private Integer tipoUsuario; // 1: Steakholder, 2:ScrumMaster, 3:Team
 	
 	public static final String NOME_ID = "_id";
 	public static final String NOME_SENHA = "senha";
@@ -43,18 +48,78 @@ public class Usuario {
 	}
 
 
-	public int getTipoUsuario() {
+	public Integer getTipoUsuario() {
 		return tipoUsuario;
 	}
 
 
-	public void setTipoUsuario(int tipoUsuario) {
+	public void setTipoUsuario(Integer tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 
 
 	public Long getId() {
 		return id;
+	}
+
+
+	@Override
+	public Object getProperty(int index) {
+		switch(index){
+			case 0:
+				return this.email;
+			case 1:
+				return this.senha;
+			case 2:
+				return this.tipoUsuario;
+		}
+		return null;
+	}
+
+
+	@Override
+	public int getPropertyCount() {
+		return 3;
+	}
+
+
+	@Override
+	public void getPropertyInfo(int index, Hashtable ht, PropertyInfo pi) {
+		switch(index){
+			case 0:
+				pi.type = String.class;
+				pi.name = "email";
+				break;
+			case 1:
+				pi.type = String.class;
+				pi.name = "senha";
+				break;
+			case 2:
+				pi.type = Integer.class;
+				pi.name = "tipoUsuario";
+				break;
+			default:
+				break;
+		}
+		
+	}
+
+
+	@Override
+	public void setProperty(int index, Object obj) {
+		switch(index){
+			case 0:
+				this.email = (String)obj;
+				break;
+			case 1:
+				this.senha = (String)obj;
+				break;
+			case 2:
+				this.tipoUsuario = (Integer)obj;
+				break;
+			default:
+				break;
+		}
 	}
 	
 	

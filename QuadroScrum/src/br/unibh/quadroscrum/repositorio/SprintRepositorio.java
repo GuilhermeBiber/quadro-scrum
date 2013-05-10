@@ -12,11 +12,11 @@ public class SprintRepositorio {
 	public static final String CREATE_TABELA_SPRINT = 
 			"CREATE TABLE " + Sprint.NOME_TABELA
 			+ "("
-			+ Sprint.NOME_ID + " integer primary key autoincrement"
+			+ Sprint.NOME_ID + " integer primary key autoincrement, "
 			+ Sprint.NOME_TITULO + " varchar(50) not null, "
 			+ Sprint.NOME_DESCRICAO + " varchar(50), "
 			+ Sprint.NOME_PRODUTO + " integer not null, "
-			+ Sprint.NOME_DATA_INSERCAO + " date not null, "
+			+ Sprint.NOME_DATA_INSERCAO + " date, "
 			+ Sprint.NOME_DATA_INICIO + " date, "
 			+ Sprint.NOME_DATA_FIM + " date"
 			+ ");";

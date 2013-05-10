@@ -1,8 +1,12 @@
 package br.unibh.quadroscrum.modelo;
 
 import java.util.Date;
+import java.util.Hashtable;
 
-public class Backlog {
+import org.ksoap2.serialization.KvmSerializable;
+import org.ksoap2.serialization.PropertyInfo;
+
+public class Backlog implements KvmSerializable{
 	
 	public static final String NOME_TABELA = "scrum_backlog";
 	
@@ -11,12 +15,12 @@ public class Backlog {
 	private String descricao;
 	private Sprint sprint;
 	private Usuario usuario;
-	private Date dataInsecao;
+	private Date dataInsercao;
 	private Produto produto;
-	private Long status;
-	private int prioridade;
-	private int tempoEstimado;
-	private int travado;
+	private Integer status;
+	private Integer prioridade;
+	private Integer tempoEstimado;
+	private Integer travado;
 	
 	public static final String NOME_ID = "_id";
 	public static final String NOME_TITULO = "titulo";
@@ -73,10 +77,10 @@ public class Backlog {
 		this.usuario = usuario;
 	}
 	public Date getDataInsecao() {
-		return dataInsecao;
+		return dataInsercao;
 	}
 	public void setDataInsecao(Date dataInsecao) {
-		this.dataInsecao = dataInsecao;
+		this.dataInsercao = dataInsecao;
 	}
 	public Produto getProduto() {
 		return produto;
@@ -84,29 +88,148 @@ public class Backlog {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
-	public Long getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
-	public void setStatus(Long status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	public int getPrioridade() {
+	public Integer getPrioridade() {
 		return prioridade;
 	}
-	public void setPrioridade(int prioridade) {
+	public void setPrioridade(Integer prioridade) {
 		this.prioridade = prioridade;
 	}
-	public int getTempoEstimado() {
+	public Integer getTempoEstimado() {
 		return tempoEstimado;
 	}
-	public void setTempoEstimado(int tempoEstimado) {
+	public void setTempoEstimado(Integer tempoEstimado) {
 		this.tempoEstimado = tempoEstimado;
 	}
-	public int getTravado() {
+	public Integer getTravado() {
 		return travado;
 	}
-	public void setTravado(int travado) {
+	public void setTravado(Integer travado) {
 		this.travado = travado;
+	}
+	
+	@Override
+	public Object getProperty(int index) {
+		switch(index){
+			case 0:
+				return this.dataInsercao;
+			case 1:
+				return this.descricao;
+			case 2:
+				return this.id;
+			case 3:
+				return this.prioridade;
+			case 4:
+				return this.produto;
+			case 5:
+				return this.sprint;
+			case 6:
+				return this.status;
+			case 7:
+				return this.tempoEstimado;
+			case 8:
+				return this.titulo;
+			case 9:
+				return this.travado;
+			case 10:
+				return this.usuario;
+		}
+		return null;
+	}
+	@Override
+	public int getPropertyCount() {
+		return 11;
+	}
+	@Override
+	public void getPropertyInfo(int index, Hashtable ht, PropertyInfo pi) {
+		switch(index){
+			case 0:
+				pi.type = Date.class;
+				pi.name = "dataInsercao";
+				break;
+			case 1:
+				pi.type = String.class;
+				pi.name = "descricao";
+				break;
+			case 2:
+				pi.type = Long.class;
+				pi.name = "id";
+				break;
+			case 3:
+				pi.type = Integer.class;
+				pi.name = "prioridade";
+				break;
+			case 4:
+				pi.type = Produto.class;
+				pi.name = "produto";
+				break;
+			case 5:
+				pi.type = Sprint.class;
+				pi.name = "sprint";
+				break;
+			case 6:
+				pi.type = Integer.class;
+				pi.name = "status";
+				break;
+			case 7:
+				pi.type = Integer.class;
+				pi.name = "tempoEstimado";
+				break;
+			case 8:
+				pi.type = Integer.class;
+				pi.name = "titulo";
+				break;
+			case 9:
+				pi.type = Integer.class;
+				pi.name = "travado";
+			case 10:
+				pi.type = Usuario.class;
+				pi.name = "usuario";
+	}		
+	}
+	@Override
+	public void setProperty(int index, Object obj) {
+		
+		switch(index){
+			case 0:
+				this.dataInsercao = (Date)obj;
+				break;
+			case 1:
+				this.descricao = (String)obj;
+				break;
+			case 2:
+				this.id = (Long)obj;
+				break;
+			case 3:
+				this.prioridade = (Integer)obj;
+				break;
+			case 4:
+				this.produto = (Produto)obj;
+				break;
+			case 5:
+				this.sprint = (Sprint)obj;
+				break;
+			case 6:
+				this.status = (Integer)obj;
+				break;
+			case 7:
+				this.tempoEstimado = (Integer)obj;
+				break;
+			case 8:
+				this.titulo = (String)obj;
+				break;
+			case 9:
+				this.travado = (Integer)obj;
+				break;
+			case 10:
+				this.usuario = (Usuario)obj;
+				break;
+		}
 	}	
 	
 	

@@ -15,8 +15,8 @@ public class UsuarioRepositorioScript extends UsuarioRepositorio{
 	public static final String CREATE_TABELA_USUARIO = 
 			"CREATE TABLE " + Usuario.NOME_TABELA
 			+ "( "
-			+ Usuario.NOME_ID + "integer autoincrement, " // sequencial
-			+ Usuario.NOME_EMAIL + " varchar(50) primary key, "
+			+ Usuario.NOME_ID + " integer primary key autoincrement, " // sequencial
+			+ Usuario.NOME_EMAIL + " varchar(50) unique not null, "
 			+ Usuario.NOME_SENHA + " varchar(50) not null, "
 			+ Usuario.NOME_TIPO_USUARIO + " integer not null "
 			+ ");";
