@@ -1,4 +1,4 @@
-package br.unibh.quadroscrum.iu;
+package br.unibh.quadroscrum.iu.cadastros;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -34,7 +34,7 @@ public class CadastroUsuarioActicity extends Activity{
 		tipo.setAdapter(tipos);
 		
 		
-		Button botaoInesrir = (Button) findViewById(R.id.botao_salvar);
+		Button botaoInesrir = (Button) findViewById(R.id.botao_salvar_usuario);
 		
 		botaoInesrir.setOnClickListener(new OnClickListener() {
 			

@@ -2,7 +2,10 @@ package br.unibh.quadroscrum.repositorio;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import br.unibh.quadroscrum.modelo.Produto;
 
 public class ProdutoRepositorio {
@@ -23,7 +26,7 @@ public class ProdutoRepositorio {
 	
 	
 	private SQLiteDatabase db;
-	
+	private static final String TAG = "scrum";
 	public ProdutoRepositorio(Context contexto){
 		this.db = contexto.openOrCreateDatabase(ScrumHelper.NOME_BANCO,
 				Context.MODE_PRIVATE, null);
@@ -37,7 +40,7 @@ public class ProdutoRepositorio {
 	
 //*************************** INSERT ******************************************
 	
-	private Long inserir(Produto produto){
+	public Long inserir(Produto produto){
 		ContentValues valores= new ContentValues();
 		
 		valores.put(Produto.NOME_PRODUTO, produto.getNome());
@@ -58,7 +61,7 @@ public class ProdutoRepositorio {
 	
 	
 //***************************** UPDATE ****************************************
-	private int atualizar(Produto produto){
+	public int atualizar(Produto produto){
 		
 		ContentValues valores= new ContentValues();
 		valores.put(Produto.NOME_PRODUTO, produto.getNome());
@@ -79,7 +82,7 @@ public class ProdutoRepositorio {
 	
 //**************************** DELETE *****************************************
 	
-	private int delete(Produto produto){
+	public int delete(Produto produto){
 		String where = Produto.NOME_ID + " = ?";
 		
 		String[] whereArg = new String[] {produto.getId().toString()};
@@ -96,4 +99,20 @@ public class ProdutoRepositorio {
 	
 //************************** SELECT *******************************************
 	
+	public Cursor selectProduto(Produto produto){
+		String select = "SELECT * "
+						+ "FROM " + Produto.NOME_TABELA
+						+ "WHERE " + Produto.NOME_PRODUTO + "= ?";
+		String[] selectArgs = new String[] {produto.getNome()};
+		
+		Cursor c = null;
+		try {
+			c = db.rawQuery(select, selectArgs);
+		} catch (SQLException e) {
+			Log.e(TAG, "Select falhou: " + e.toString());
+			fechar();
+		}
+		
+		return c;
+	}
 }

@@ -3,6 +3,7 @@ package br.unibh.quadroscrum.controle;
 import android.content.Context;
 import android.database.Cursor;
 import br.unibh.quadroscrum.modelo.Usuario;
+import br.unibh.quadroscrum.repositorio.UsuarioRepositorio;
 import br.unibh.quadroscrum.repositorio.UsuarioRepositorioScript;
 
 
@@ -36,7 +37,7 @@ public boolean existeUsuario(Usuario usuario){
 	
 	public boolean inserir(Usuario usuario){
 		
-		UsuarioRepositorioScript repositorio = new UsuarioRepositorioScript(contexto);
+		UsuarioRepositorio repositorio = new UsuarioRepositorioScript(contexto);
 		
 		return repositorio.inserir(usuario);
 		

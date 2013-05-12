@@ -23,6 +23,12 @@ public class Produto  implements KvmSerializable{
 	public static final int INDICE_DESCRICAO = 1;
 	public static final int INDICE_DATA_INSERCAO = 2;
 	
+	
+	public Produto() {}
+	
+	public Produto(String nome){
+		this.nome = nome;
+	}
 	public Long getId() {
 		return id;
 	}

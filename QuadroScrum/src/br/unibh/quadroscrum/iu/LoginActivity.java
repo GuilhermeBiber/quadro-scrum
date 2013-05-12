@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import br.unibh.quadroscrum.R;
 import br.unibh.quadroscrum.controle.ControleUsuario;
+import br.unibh.quadroscrum.iu.cadastros.CadastroUsuarioActicity;
 import br.unibh.quadroscrum.modelo.Backlog;
 import br.unibh.quadroscrum.modelo.Usuario;
 import br.unibh.quadroscrum.ws.BacklogList;
@@ -23,7 +24,6 @@ public class LoginActivity extends Activity  implements Runnable{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		
 		super.onCreate(savedInstanceState);
 		new Thread(this).run();
@@ -53,7 +53,7 @@ public class LoginActivity extends Activity  implements Runnable{
 					
 				}else{
 					
-					Toast.makeText(v.getContext(), "Favor digite um usuario e uma senha válida!", Toast.LENGTH_LONG).show();
+					Toast.makeText(v.getContext(), "Favor digite um usuario e/ou uma senha válida!", Toast.LENGTH_LONG).show();
 				
 				}
 			}
@@ -71,7 +71,7 @@ public class LoginActivity extends Activity  implements Runnable{
 		BacklogList backlogList = ws.baklogList(new Backlog());
 		
 		for (Backlog backlog : backlogList) {
-			Log.i(TAG, backlog.toString());
+			
 		}
 		
 	}
