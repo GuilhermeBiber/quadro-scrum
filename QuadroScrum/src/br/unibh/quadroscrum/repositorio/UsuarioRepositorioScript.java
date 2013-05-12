@@ -22,12 +22,14 @@ public class UsuarioRepositorioScript extends UsuarioRepositorio{
 			+ ");";
 	
 	public static final String INSERT_USUARIO_MASTER = 
-			"INSERT INTO " + Usuario.NOME_TABELA  +"("	+ Usuario.NOME_EMAIL + ", "
-														+ Usuario.NOME_SENHA + ", "
-														+ Usuario.NOME_TIPO_USUARIO + ")" 
+			"INSERT INTO " + Usuario.NOME_TABELA  +"("	
+					+ Usuario.NOME_EMAIL + ", "
+					+ Usuario.NOME_SENHA + ", "
+					+ Usuario.NOME_TIPO_USUARIO + ")" 
 			+ " VALUES ('master@master','1',2);";
 	
-	public static final String DROP_TABELA_USUARIO = "DROP TABLE IF EXISTS "+ Usuario.NOME_TABELA + ";";
+	public static final String DROP_TABELA_USUARIO = "DROP TABLE IF EXISTS "
+			+ Usuario.NOME_TABELA + ";";
 	
 	public UsuarioRepositorioScript(Context contexto) {
 		

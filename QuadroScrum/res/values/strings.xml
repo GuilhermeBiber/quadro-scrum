@@ -14,4 +14,6 @@
 	<string name="nome_produto">Nome Produto</string>
 	<string name="salvar_produto">Salvar produto</string>
     
+	
+	<string name = "titulo_status">Selecionar Status</string>
 </resources>

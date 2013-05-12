@@ -1,4 +1,4 @@
-package br.unibh.quadroscrum.ws;
+package br.unibh.quadroscrum.ws.produto;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -7,10 +7,10 @@ import org.ksoap2.serialization.KvmSerializable;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 
-import br.unibh.quadroscrum.modelo.Backlog;
+import br.unibh.quadroscrum.modelo.Produto;
 
 @SuppressWarnings("serial")
-public abstract class LiteralArrayList extends ArrayList<Backlog> implements KvmSerializable {
+public abstract class LiteralArrayListProduto extends ArrayList<Produto> implements KvmSerializable {
 
 	@Override
 	public Object getProperty(int index) {
@@ -24,7 +24,7 @@ public abstract class LiteralArrayList extends ArrayList<Backlog> implements Kvm
 
 	@Override
 	public void setProperty(int index, Object value) {
-        this.add((Backlog)value);
+        this.add((Produto)value);
 	}
 
 	@Override

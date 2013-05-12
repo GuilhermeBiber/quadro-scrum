@@ -1,4 +1,4 @@
-package br.unibh.quadroscrum.ws;
+package br.unibh.quadroscrum.ws.backlog;
 
 import java.util.Date;
 
@@ -13,11 +13,13 @@ import br.unibh.quadroscrum.modelo.Backlog;
 import br.unibh.quadroscrum.modelo.Produto;
 import br.unibh.quadroscrum.modelo.Sprint;
 import br.unibh.quadroscrum.modelo.Usuario;
+import br.unibh.quadroscrum.ws.LivroHttpTransportSE;
 
 public class BacklogWs {
 
 	private static final String NAMESPACE = "http://ws.unibh.com/";
-	private static final String URL = "http://10.0.2.2:8080/scrum-ws-0.0.1-SNAPSHOT/BaclogWs/BacklogWs?wsdl";
+	private static final String URL = 
+		"http://10.0.2.2:8080/scrum-ws-0.0.1-SNAPSHOT/BaclogWs/BacklogWs?wsdl";
 	
 	public BacklogList baklogList(Backlog backlog){
 		
@@ -25,8 +27,10 @@ public class BacklogWs {
 		
 		request.addProperty("arg0", new Date());
 		
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		envelope.addMapping(NAMESPACE, "enviaBacklogResponse", BacklogList.class);
+		SoapSerializationEnvelope envelope =
+				new SoapSerializationEnvelope(SoapEnvelope.VER11);
+		envelope.addMapping(NAMESPACE, "enviaBacklogResponse",
+				BacklogList.class);
 		envelope.addMapping(NAMESPACE, "return", Backlog.class);
 		envelope.addMapping(NAMESPACE, "produto", Produto.class);
 		envelope.addMapping(NAMESPACE, "sprint", Sprint.class);
@@ -44,11 +48,7 @@ public class BacklogWs {
 			return ((BacklogList)envelope.getResponse());
 		} catch (Exception e) {
 			Log.e("ERRO", e.toString());
-		}
-		
-		
-		
-		
+		}		
 		
 		return null;
 	}

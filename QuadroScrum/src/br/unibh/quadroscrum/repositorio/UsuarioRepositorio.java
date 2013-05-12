@@ -94,7 +94,7 @@ public class UsuarioRepositorio {
 	}
 	
 //********************************** SELECT **********************************
-	public Cursor selectUsuarioLoginSenha(String email, String senha){
+	public Cursor selectUsuarioSenha(String email, String senha){
 		
 		String select = "SELECT * "+
 				" FROM " + Usuario.NOME_TABELA+
@@ -112,5 +112,20 @@ public class UsuarioRepositorio {
 		return c;
 	}
 	
-	
+public Cursor selectUsuario(String email){
+		
+		String select = "SELECT * "+
+				" FROM " + Usuario.NOME_TABELA+
+				" WHERE " + Usuario.NOME_EMAIL + " = ?";
+
+		String[] selectArgs = new String[]{email};	
+		Cursor c = null;
+		try{
+			c = db.rawQuery(select, selectArgs);
+		}catch(SQLException e){
+			Log.e(TAG, "Select falhou: " + e.toString());
+			fechar();
+		}
+		return c;
+	}
 }

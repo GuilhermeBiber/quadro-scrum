@@ -14,8 +14,8 @@ import br.unibh.quadroscrum.controle.ControleUsuario;
 import br.unibh.quadroscrum.iu.cadastros.CadastroUsuarioActicity;
 import br.unibh.quadroscrum.modelo.Backlog;
 import br.unibh.quadroscrum.modelo.Usuario;
-import br.unibh.quadroscrum.ws.BacklogList;
-import br.unibh.quadroscrum.ws.BacklogWs;
+import br.unibh.quadroscrum.ws.backlog.BacklogList;
+import br.unibh.quadroscrum.ws.backlog.BacklogWs;
 
 public class LoginActivity extends Activity  implements Runnable{
 	
@@ -47,13 +47,16 @@ public class LoginActivity extends Activity  implements Runnable{
 				usuario.setEmail(email.getText().toString());
 				usuario.setSenha(senha.getText().toString());
 				
-				if(controle.existeUsuario(usuario)){
+				if(controle.logarUsuario(usuario)){
 					
-					startActivity(new Intent(v.getContext(),CadastroUsuarioActicity.class));
+					startActivity(new Intent(v.getContext()
+							,CadastroUsuarioActicity.class));
 					
 				}else{
 					
-					Toast.makeText(v.getContext(), "Favor digite um usuario e/ou uma senha válida!", Toast.LENGTH_LONG).show();
+					Toast.makeText(v.getContext(), "Favor digite um usuario " 
+							+ "e/ou uma senha válida!", 
+							Toast.LENGTH_LONG).show();
 				
 				}
 			}

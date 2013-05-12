@@ -15,29 +15,49 @@ public class ControleUsuario {
 	 }
 	 
 	
-public boolean existeUsuario(Usuario usuario){
-		
-		UsuarioRepositorioScript repositorio = new UsuarioRepositorioScript(contexto);
-		
-		Cursor c = repositorio.selectUsuarioLoginSenha(usuario.getEmail(), usuario.getSenha());
-		
-		if(c.moveToFirst()){
-			c.close();
-			repositorio.fechar();
-			return true;
-		}else{
+	 public boolean logarUsuario(Usuario usuario){
+		 
+		 UsuarioRepositorioScript repositorio = 
+					new UsuarioRepositorioScript(contexto);
+			
+			Cursor c = repositorio.selectUsuarioSenha(usuario.getEmail(),
+					usuario.getSenha());
+			
+			if(c.moveToFirst()){
+				c.close();
+				repositorio.fechar();
+				return true;
+			}
 			c.close();
 			repositorio.fechar();
 			return false;		
-		}
-		
+		 
+	 }
+	 
+	 public boolean existeUsuario(Usuario usuario){
+			
+			UsuarioRepositorioScript repositorio = 
+					new UsuarioRepositorioScript(contexto);
+			
+			Cursor c = repositorio.selectUsuario(usuario.getEmail());
 
-	}
+			if(c.moveToFirst()){
+				c.close();
+				repositorio.fechar();
+				return true;
+			}else{
+				c.close();
+				repositorio.fechar();
+				return false;		
+			}
+			
+
+	 }
 	
 	
 	public boolean inserir(Usuario usuario){
 		
-		UsuarioRepositorio repositorio = new UsuarioRepositorioScript(contexto);
+		UsuarioRepositorio repositorio = new UsuarioRepositorio(contexto);
 		
 		return repositorio.inserir(usuario);
 		

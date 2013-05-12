@@ -1,11 +1,11 @@
-package br.unibh.quadroscrum.ws;
+package br.unibh.quadroscrum.ws.backlog;
 
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 
 import br.unibh.quadroscrum.modelo.Backlog;
 
 @SuppressWarnings("serial")
-public class BacklogList extends LiteralArrayList {
+public class BacklogList extends LiteralArrayListBacklog {
 
 	@Override
 	protected Class getElementClass() {
