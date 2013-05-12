@@ -92,6 +92,12 @@ public class Produto  implements KvmSerializable{
 			break;
 		}
 	}
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", nome=" + nome + ", dataInsercao="
+				+ dataInsercao + "]";
+	}
+	
 	
 	
 }

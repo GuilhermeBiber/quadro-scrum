@@ -2,19 +2,19 @@ package br.unibh.quadroscrum.iu;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import br.unibh.quadroscrum.R;
 import br.unibh.quadroscrum.controle.ControleUsuario;
 import br.unibh.quadroscrum.modelo.Usuario;
 
-public class CadastroUsuarioActicity extends Activity {
+public class CadastroUsuarioActicity extends Activity{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +46,14 @@ public class CadastroUsuarioActicity extends Activity {
 				Spinner tipo = (Spinner) findViewById(R.id.tipo_usuario);
 				
 				Usuario usuario = new Usuario(email.getText().toString(), senha.getText().toString(), tipo.getSelectedItemPosition());
-				
+				Log.i("scrum", usuario.toString());
 				ControleUsuario controle = new ControleUsuario(v.getContext());
 				
-				if(controle.existeUsuario(usuario) != null){
+				if(controle.existeUsuario(usuario)){
 					
 					Toast.makeText(v.getContext(), "Usuario ja existe no sistema", Toast.LENGTH_LONG).show();
 				}else{
-					if(controle.inserir(usuario) != null){					
+					if(controle.inserir(usuario)){					
 						Toast.makeText(v.getContext(), "Usuario Inserido com sucesso", Toast.LENGTH_LONG).show();
 					}else{
 						Toast.makeText(v.getContext(), "Usuario NÃO INSERIDO", Toast.LENGTH_LONG).show();
@@ -64,4 +64,5 @@ public class CadastroUsuarioActicity extends Activity {
 		});
 		
 	}
+
 }

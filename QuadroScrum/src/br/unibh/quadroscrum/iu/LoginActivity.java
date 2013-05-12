@@ -11,8 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 import br.unibh.quadroscrum.R;
 import br.unibh.quadroscrum.controle.ControleUsuario;
+import br.unibh.quadroscrum.modelo.Backlog;
+import br.unibh.quadroscrum.modelo.Usuario;
+import br.unibh.quadroscrum.ws.BacklogList;
+import br.unibh.quadroscrum.ws.BacklogWs;
 
-public class LoginActivity extends Activity{
+public class LoginActivity extends Activity  implements Runnable{
 	
 	private static final String TAG = "scrum";
 
@@ -20,7 +24,10 @@ public class LoginActivity extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		
 		super.onCreate(savedInstanceState);
+		new Thread(this).run();
+		
 		
 		setContentView(R.layout.login);
 		
@@ -35,8 +42,12 @@ public class LoginActivity extends Activity{
 				EditText senha = (EditText) findViewById(R.id.senha);
 				
 				ControleUsuario controle = new ControleUsuario(v.getContext());
+				Usuario usuario= new Usuario();
 				
-				if(( controle.existeUsuario(email.getText().toString(), senha.getText().toString()))){
+				usuario.setEmail(email.getText().toString());
+				usuario.setSenha(senha.getText().toString());
+				
+				if(controle.existeUsuario(usuario)){
 					
 					startActivity(new Intent(v.getContext(),CadastroUsuarioActicity.class));
 					
@@ -49,6 +60,20 @@ public class LoginActivity extends Activity{
 		});
 		
 
+	}
+
+
+	@Override
+	public void run() {
+		
+		BacklogWs ws = new BacklogWs();
+		
+		BacklogList backlogList = ws.baklogList(new Backlog());
+		
+		for (Backlog backlog : backlogList) {
+			Log.i(TAG, backlog.toString());
+		}
+		
 	}
 
 

@@ -46,6 +46,7 @@ public class Backlog implements KvmSerializable{
 	public static final int INDICE_TEMPO_ESTIMADO = 9;
 	public static final int INDICE_TRAVADO = 10;
 	
+	
 	public Long getId() {
 		return id;
 	}
@@ -181,16 +182,18 @@ public class Backlog implements KvmSerializable{
 				pi.name = "tempoEstimado";
 				break;
 			case 8:
-				pi.type = Integer.class;
+				pi.type = String.class;
 				pi.name = "titulo";
 				break;
 			case 9:
 				pi.type = Integer.class;
 				pi.name = "travado";
+				break;
 			case 10:
 				pi.type = Usuario.class;
 				pi.name = "usuario";
-	}		
+				break;
+		}		
 	}
 	@Override
 	public void setProperty(int index, Object obj) {
@@ -230,6 +233,17 @@ public class Backlog implements KvmSerializable{
 				this.usuario = (Usuario)obj;
 				break;
 		}
+	}
+	@Override
+	public String toString() {
+		return "Backlog [id=" + id + ", titulo=" + titulo + ", descricao="
+				+ descricao + ", sprint=" + sprint.toString()
+				+ ", usuario=" + usuario.toString() 
+				+ ", dataInsercao=" + dataInsercao 
+				+ ", produto=" + produto.toString() + ", status=" + status 
+				+ ", prioridade=" + prioridade
+				+ ", tempoEstimado=" + tempoEstimado + ", travado=" + travado
+				+ "]";
 	}	
 	
 	

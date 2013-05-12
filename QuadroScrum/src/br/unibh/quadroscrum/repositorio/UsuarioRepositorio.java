@@ -32,7 +32,7 @@ public class UsuarioRepositorio {
 	
 //******************************* INSERT **************************************
 	
-	public String inserir(Usuario usuario){
+	public boolean inserir(Usuario usuario){
 		ContentValues valores = new ContentValues();
 		
 		valores.put(Usuario.NOME_EMAIL, usuario.getEmail());
@@ -42,9 +42,9 @@ public class UsuarioRepositorio {
 		Long id = inserir(valores);
 		
 		if (id != null){
-			return usuario.getEmail();
+			return true;
 		}else{
-			return null;
+			return false;
 		}
 	}
 	

@@ -30,6 +30,8 @@ public class Usuario implements KvmSerializable {
 		this.tipoUsuario = tipoUsuario;
 	}
 	
+	public Usuario() {
+	}
 	
 	public String getEmail() {
 		return email;
@@ -98,8 +100,6 @@ public class Usuario implements KvmSerializable {
 				pi.type = Integer.class;
 				pi.name = "tipoUsuario";
 				break;
-			default:
-				break;
 		}
 		
 	}
@@ -117,9 +117,14 @@ public class Usuario implements KvmSerializable {
 			case 2:
 				this.tipoUsuario = (Integer)obj;
 				break;
-			default:
-				break;
 		}
+	}
+
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", email=" + email + ", senha=" + senha
+				+ ", tipoUsuario=" + tipoUsuario + "]";
 	}
 	
 	

@@ -34,6 +34,7 @@ public class Sprint implements KvmSerializable{
 	public static final int INDICE_DATA_INICIO = 5;
 	public static final int INDICE_DATA_FIM = 6;
 	
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -105,7 +106,7 @@ public class Sprint implements KvmSerializable{
 		switch(index){
 			case 0:
 				pi.type = Date.class;
-				pi.name = "dataInsercao";
+				pi.name = "dataFim";
 				break;
 			case 1:
 				pi.type = Date.class;
@@ -164,6 +165,14 @@ public class Sprint implements KvmSerializable{
 		}
 		
 	}
+	@Override
+	public String toString() {
+		return "Sprint [id=" + id + ", titulo=" + titulo + ", descricao="
+				+ descricao + ", produto=" + produto + ", dataInsercao="
+				+ dataInsercao + ", dataInicio=" + dataInicio + ", dataFim="
+				+ dataFim + "]";
+	}
+	
 	
 
 }

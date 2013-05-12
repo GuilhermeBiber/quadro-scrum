@@ -13,11 +13,12 @@ public class ControleUsuario {
 		 this.contexto = contexto;
 	 }
 	 
-	public boolean existeUsuario(String email, String senha){
+	
+public boolean existeUsuario(Usuario usuario){
 		
 		UsuarioRepositorioScript repositorio = new UsuarioRepositorioScript(contexto);
 		
-		Cursor c = repositorio.selectUsuarioLoginSenha(email, senha);
+		Cursor c = repositorio.selectUsuarioLoginSenha(usuario.getEmail(), usuario.getSenha());
 		
 		if(c.moveToFirst()){
 			c.close();
@@ -32,26 +33,8 @@ public class ControleUsuario {
 
 	}
 	
-public String existeUsuario(Usuario usuario){
-		
-		UsuarioRepositorioScript repositorio = new UsuarioRepositorioScript(contexto);
-		
-		Cursor c = repositorio.selectUsuarioLoginSenha(usuario.getEmail(), usuario.getSenha());
-		
-		if(c.moveToFirst()){
-			String email= c.getString(Usuario.INDICE_EMAIL);
-			repositorio.fechar();
-			return email;
-		}else{
-			repositorio.fechar();
-			return null;		
-		}
-		
-
-	}
 	
-	
-	public String inserir(Usuario usuario){
+	public boolean inserir(Usuario usuario){
 		
 		UsuarioRepositorioScript repositorio = new UsuarioRepositorioScript(contexto);
 		
