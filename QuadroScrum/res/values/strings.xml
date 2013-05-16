@@ -11,6 +11,14 @@
 	    <item>Team</item>
 	</string-array>
 	
+	<string-array name = "status">
+	    <item>Fazer</item>
+	    <item>Fazendo</item>
+	    <item>Teste</item>
+	    <item>Testando</item>
+	    <item>Concluido</item>	    
+	</string-array>
+	
 	<string name="nome_produto">Nome Produto</string>
 	<string name="salvar_produto">Salvar produto</string>
     

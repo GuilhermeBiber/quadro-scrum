@@ -2,9 +2,9 @@ package br.unibh.quadroscrum.repositorio;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import br.unibh.quadroscrum.modelo.Sprint;
-import br.unibh.quadroscrum.modelo.Usuario;
 
 public class SprintRepositorio {
 
@@ -18,7 +18,8 @@ public class SprintRepositorio {
 			+ Sprint.NOME_PRODUTO + " integer not null, "
 			+ Sprint.NOME_DATA_INSERCAO + " date, "
 			+ Sprint.NOME_DATA_INICIO + " date, "
-			+ Sprint.NOME_DATA_FIM + " date"
+			+ Sprint.NOME_DATA_FIM + " date, "
+			
 			+ ");";
 	
 //**************************** DROP *******************************************
@@ -94,6 +95,28 @@ public class SprintRepositorio {
 	
 //******************************** SELECT ************************************
 	
+	public Cursor selectSprintIniciada(){
+		
+		String select = "SELECT * FROM " + Sprint.NOME_TABELA 
+				+ " WHERE " + Sprint.NOME_INICIADA + " = 1 AND "
+				+ Sprint.NOME_FINALIZADA + " = 0";
+		Cursor c = db.rawQuery(select, null);
+		
+		return c;
+		
+	}
 	
+	public Cursor listarPorProduto(Long idProduto ){
+		
+		String select = "SELECT * FROM " + Sprint.NOME_TABELA 
+				+ " WHERE " + Sprint.NOME_PRODUTO + " = ?";
+		
+		String[] selectArgs = new String[] {idProduto.toString()};
+		
+		Cursor c = db.rawQuery(select, selectArgs);
+		
+		return c;
+		
+	}
 	
 }

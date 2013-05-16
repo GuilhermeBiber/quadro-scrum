@@ -99,7 +99,7 @@ public class ProdutoRepositorio {
 	
 //************************** SELECT *******************************************
 	
-	public Cursor selectProduto(Produto produto){
+	public Cursor existeProduto(Produto produto){
 		String select = "SELECT * "
 						+ "FROM " + Produto.NOME_TABELA
 						+ "WHERE " + Produto.NOME_PRODUTO + "= ?";
@@ -112,6 +112,16 @@ public class ProdutoRepositorio {
 			Log.e(TAG, "Select falhou: " + e.toString());
 			fechar();
 		}
+		
+		return c;
+	}
+	
+	public Cursor listarTodos(){
+		
+		String select = "SELECT * FROM " + Produto.NOME_TABELA + ";";
+		
+		Cursor c= null;
+		c = db.rawQuery(select, null);
 		
 		return c;
 	}

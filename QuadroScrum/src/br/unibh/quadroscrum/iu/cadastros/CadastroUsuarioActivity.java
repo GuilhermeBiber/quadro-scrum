@@ -14,7 +14,7 @@ import br.unibh.quadroscrum.R;
 import br.unibh.quadroscrum.controle.ControleUsuario;
 import br.unibh.quadroscrum.modelo.Usuario;
 
-public class CadastroUsuarioActicity extends Activity{
+public class CadastroUsuarioActivity extends Activity{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class CadastroUsuarioActicity extends Activity{
 				
 				if(controle.existeUsuario(usuario)){
 					
-					Toast.makeText(v.getContext(), "Usuario ja existe no sistema", Toast.LENGTH_LONG).show();
+					Toast.makeText(v.getContext(), "Usuario ja existe no sistema!", Toast.LENGTH_LONG).show();
 				}else{
 					if(controle.inserir(usuario)){					
 						Toast.makeText(v.getContext(), "Usuario Inserido com sucesso", Toast.LENGTH_LONG).show();

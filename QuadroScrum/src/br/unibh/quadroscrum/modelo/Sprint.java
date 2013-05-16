@@ -17,6 +17,8 @@ public class Sprint implements KvmSerializable{
 	private Date dataInsercao;
 	private Date dataInicio;
 	private Date dataFim;
+	private Integer iniciada;
+	private Integer finalizada;
 	
 	public static final String NOME_ID = "_id";
 	public static final String NOME_TITULO = "titulo";
@@ -25,6 +27,8 @@ public class Sprint implements KvmSerializable{
 	public static final String NOME_DATA_INSERCAO = "data_insercao";
 	public static final String NOME_DATA_INICIO = "data_inicio";
 	public static final String NOME_DATA_FIM = "data_fim";
+	public static final String NOME_INICIADA = "iniciada";
+	public static final String NOME_FINALIZADA = "finalizada";
 	
 	public static final int INDICE_ID = 0;
 	public static final int INDICE_TITULO = 1;
@@ -33,6 +37,8 @@ public class Sprint implements KvmSerializable{
 	public static final int INDICE_DATA_INSERCAO = 4;
 	public static final int INDICE_DATA_INICIO = 5;
 	public static final int INDICE_DATA_FIM = 6;
+	public static final int INDICE_INICIADA = 7;
+	public static final int INDICE_FINALIZADA = 8;
 	
 	
 	public String getTitulo() {
@@ -77,6 +83,19 @@ public class Sprint implements KvmSerializable{
 	public void setId(Long id){
 		this.id = id;
 	}
+	public Integer getIniciada() {
+		return iniciada;
+	}
+	public void setIniciada(Integer iniciada) {
+		this.iniciada = iniciada;
+	}
+	public Integer getFinalizada() {
+		return finalizada;
+	}
+	public void setFinalizada(Integer finalizada) {
+		this.finalizada = finalizada;
+	}
+	
 	@Override
 	public Object getProperty(int index) {
 		switch(index){
@@ -88,11 +107,15 @@ public class Sprint implements KvmSerializable{
 				return this.dataInsercao;
 			case 3:
 				return this.descricao;
-			case 4:
-				return this.id;
+			case 4: 
+				return this.finalizada;
 			case 5:
-				return this.produto;
+				return this.id;
 			case 6:
+				return this.iniciada;
+			case 7:
+				return this.produto;
+			case 8:
 				return this.titulo;
 		}
 		return null;
@@ -121,14 +144,22 @@ public class Sprint implements KvmSerializable{
 				pi.name = "descricao";
 				break;
 			case 4:
+				pi.type = Integer.class;
+				pi.name = "finalizada";
+				break;
+			case 5:
 				pi.type = Long.class;
 				pi.name = "id";
 				break;
-			case 5:
+			case 6:
+				pi.type = Integer.class;
+				pi.name = "iniciada";
+				break;
+			case 7:
 				pi.type = Produto.class;
 				pi.name =  "produto";
 				break;
-			case 6:
+			case 8:
 				pi.type = String.class;
 				pi.name = "titulo";
 				break;
@@ -152,12 +183,18 @@ public class Sprint implements KvmSerializable{
 				this.descricao = (String)obj;
 				break;
 			case 4:
-				this.id = (Long)obj;
+				this.finalizada = (Integer)obj;
 				break;
 			case 5:
-				this.produto = (Produto)obj;
+				this.id = (Long)obj;
 				break;
 			case 6:
+				this.iniciada = (Integer)obj;
+				break;
+			case 7:
+				this.produto = (Produto)obj;
+				break;
+			case 8:
 				this.titulo = (String)obj;
 				break;
 			default:

@@ -14,14 +14,20 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity android:name=".iu.LoginActivity">
-			<intent-filter>
+			
+        </activity>
+        <activity android:name="br.unibh.quadroscrum.iu.cadastros.CadastroUsuarioActivity">
+
+		</activity>
+        <activity android:name=".iu.quadro.EscolhaProdutoSprint">
+            
+           	<intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
+  
         </activity>
-        <activity android:name="br.unibh.quadroscrum.iu.cadastros.CadastroUsuarioActicity">
-
-		</activity>
-    </application>
+		
+     </application>
 
 </manifest>

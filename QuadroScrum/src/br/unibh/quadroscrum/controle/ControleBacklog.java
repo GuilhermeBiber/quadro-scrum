@@ -5,12 +5,10 @@ import br.unibh.quadroscrum.repositorio.BacklogRepositorio;
 import android.content.Context;
 
 public class ControleBacklog {
-	Context contexto;
 	BacklogRepositorio repositorio;
 	
 	
 	public ControleBacklog(Context contexto){
-		this.contexto = contexto;
 		this.repositorio = new BacklogRepositorio(contexto);
 	}
 	

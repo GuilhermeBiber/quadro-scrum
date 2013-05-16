@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import br.unibh.quadroscrum.R;
 import br.unibh.quadroscrum.controle.ControleUsuario;
-import br.unibh.quadroscrum.iu.cadastros.CadastroUsuarioActicity;
+import br.unibh.quadroscrum.iu.cadastros.CadastroUsuarioActivity;
 import br.unibh.quadroscrum.modelo.Backlog;
 import br.unibh.quadroscrum.modelo.Usuario;
 import br.unibh.quadroscrum.ws.backlog.BacklogList;
@@ -50,7 +50,7 @@ public class LoginActivity extends Activity  implements Runnable{
 				if(controle.logarUsuario(usuario)){
 					
 					startActivity(new Intent(v.getContext()
-							,CadastroUsuarioActicity.class));
+							,CadastroUsuarioActivity.class));
 					
 				}else{
 					
